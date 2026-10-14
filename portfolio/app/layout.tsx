@@ -1,32 +1,31 @@
-import { Geist, Geist_Mono, Outfit, Oxanium } from "next/font/google"
-
+import type { Metadata } from "next"
+import { Cormorant_Garamond, Manrope } from "next/font/google"
 import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
 
-const oxaniumHeading = Oxanium({subsets:['latin'],variable:'--font-heading'});
-
-const outfit = Outfit({subsets:['latin'],variable:'--font-sans'})
-
-const fontMono = Geist_Mono({
+const sans = Manrope({
   subsets: ["latin"],
-  variable: "--font-mono",
+  variable: "--font-body",
+  display: "swap",
 })
-
+const serif = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal", "italic"],
+  variable: "--font-editorial",
+  display: "swap",
+})
+export const metadata: Metadata = {
+  title: "Alex Morgan — Photography",
+  description:
+    "A quieter way of seeing. Portraits, landscapes, and editorial photography. Explore selected work and start a conversation.",
+  robots: { index: false, follow: false },
+}
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", outfit.variable, oxaniumHeading.variable)}
-    >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
-      </body>
+    <html lang="en" className={sans.variable + " " + serif.variable}>
+      <body>{children}</body>
     </html>
   )
 }
