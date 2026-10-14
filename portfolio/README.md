@@ -1,21 +1,20 @@
-# Next.js template
+# Alex Morgan — sample photography portfolio
 
-This is a Next.js template with shadcn/ui.
+Built with Next.js, React, Tailwind CSS and the requested shadcn preset `b5rR41Mtnc`. The original, unmodified template is commit `e8e36e4` on main; the portfolio is a separate feature commit.
 
-## Adding components
+## Run and validate
 
-To add components to your app, run the following command:
+From this directory, with Node.js 22+ and pnpm:
 
-```bash
-npx shadcn@latest add button
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
-This will place the ui components in the `components` directory.
+Open http://localhost:3000. Run `pnpm lint`, `pnpm typecheck` and `pnpm build` before delivery. Use `pnpm start` for the production server after building.
 
-## Using components
+## Before publishing
 
-To use the components in your app, import them as follows:
+[CONTENT.md](CONTENT.md) lists every photo to replace, the identity/contact edits and illustrative rates. The site intentionally disables search indexing while it contains sample content. No deployment is configured or performed.
 
-```tsx
-import { Button } from "@/components/ui/button";
-```
+The gallery has category filtering and a keyboard-accessible image viewer. Pricing follows the portfolio and introduction; email links lead directly to enquiries with no form or stored personal data. Typography pairs Cormorant Garamond and Manrope, self-hosted by Next.js after the initial font download at build time.
